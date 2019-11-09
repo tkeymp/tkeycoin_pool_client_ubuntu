@@ -1,7 +1,8 @@
-УСТАНОВКА И НАСТРОЙКА МАЙНИНГА НА UBUNTU
+﻿УСТАНОВКА И НАСТРОЙКА МАЙНИНГА НА LINUX
 
 Системиные требования:
-- Linux Ubuntu версии 18.04 и выше;
+- Debian версии 9 и выше
+- Ubuntu версии 18.04 и выше;
 - Linux Mint версии 19 и выше;
 - Локальный кошелёк Tkeycoin Core версии не ниже 1.1.5
 Добавим, что клиент вполне может заработать и в других debian-подобных системах - пробуйте, экспериментируйте)
@@ -15,8 +16,9 @@
 Для начала установим последние обновления:
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt install wget
+sudo apt install wget ca-certificates
 После установки всех обновлений выполняем перезагрузку.
+
 
 ЭТАП 2 - Установка кошелька Tkeycoin Core
 
@@ -31,16 +33,26 @@ wget https://tkeycoin.com/tkeycoin-1.1.6.deb
 sudo apt install ./tkeycoin-1.1.6.deb
 
 На сборках системы, где в репозиторий не включен docker-ce, перед установкой кошелька потребуется добавить репозиторий docker.
-Для этого выполните следующие действия:
+
+Для Debian необходимо проделать следующие действия:
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gpg-agent
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo apt update
+
+Для Ubuntu:
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common gpg-agent
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt update
+
 После выполнения этих действий заново запускаем установку Tkeycoin Core.
 
 После уставновки запускаем Tkeycoin Core и синхронизируем его:
 tkeycoind start
+
 
 ЭТАП 3 - Установка Pool Client
 
@@ -72,6 +84,7 @@ launch.sh - скрипт для упрощённго запуска клиент
 
 Устанавливаем права на все файлы:
 sudo chmod 777 pool_client tkeyapp.conf install_dep.sh launch.sh
+
 
 ЭТАП 4 - Запуск Pool Client и майнинг
 
