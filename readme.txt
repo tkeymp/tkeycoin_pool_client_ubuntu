@@ -69,14 +69,14 @@ git clone --depth=1 --branch=pool_client_beta https://github.com/tkeymp/tkeycoin
 Произвольная версия: 
 git clone --depth=1 --branch=pool_client-x.x.x https://github.com/tkeymp/tkeycoin_pool_client_ubuntu pool_client-x.x.x
 В рамках данной инструкции разберём установку последней версии. 
-Загружаем последнюю версию Pool Client с нашего репозитория:
-git clone --depth=1 --branch=master https://github.com/tkeymp/tkeycoin_pool_client_ubuntu pool_client_latest
+Загружаем бета-версию Pool Client с нашего репозитория:
+git clone --depth=1 --branch=pool_client_beta https://github.com/tkeymp/tkeycoin_pool_client_ubuntu pool_client_beta
 
 Устанавливаем права на папку:
-sudo chmod 777 pool_client_latest
+sudo chmod 777 pool_client_beta
 
 Переходим в директорию с клиентом:
-cd pool_client_latest
+cd pool_client_beta
 
 В ней мы увидим следующие файлы:
 pool_client - исполняемый файл
