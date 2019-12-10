@@ -83,9 +83,10 @@ pool_client - исполняемый файл
 tkeyapp.conf - файл конфигурации
 install_dep.sh - скрипт для установки дополнительных зависимостей
 launch.sh - скрипт для упрощённго запуска клиента с необходимыми параметрами
+peers.dat - кастомный список пиров
 
 Устанавливаем права на все файлы:
-sudo chmod 777 pool_client tkeyapp.conf install_dep.sh launch.sh
+sudo chmod 777 pool_client tkeyapp.conf install_dep.sh launch.sh peers.dat
 
 
 ЭТАП 4 - Запуск Pool Client и майнинг
