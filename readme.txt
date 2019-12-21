@@ -17,7 +17,7 @@
 Для начала установим последние обновления:
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt install wget ca-certificates
+sudo apt install wget ca-certificates git
 После установки всех обновлений выполняем перезагрузку.
 
 
@@ -57,10 +57,7 @@ tkeycoind start
 
 ЭТАП 3 - Установка Pool Client
 
-Для начала устанавливаем Git, если он ещё не установлен:
-sudo apt install git
-
-Далее есть несколько вариантов. Вы можете скачать последнюю версию, бета-версию или произвольную.
+Есть несколько вариантов. Вы можете скачать последнюю версию, бета-версию или произвольную.
 Команды для загрузки:
 Последняя версия: 
 git clone --depth=1 --branch=master https://github.com/tkeymp/tkeycoin_pool_client_ubuntu pool_client_latest
@@ -83,9 +80,10 @@ pool_client - исполняемый файл
 tkeyapp.conf - файл конфигурации
 install_dep.sh - скрипт для установки дополнительных зависимостей
 launch.sh - скрипт для упрощённго запуска клиента с необходимыми параметрами
+peers.dat - кастомный список пиров
 
 Устанавливаем права на все файлы:
-sudo chmod 777 pool_client tkeyapp.conf install_dep.sh launch.sh
+sudo chmod 777 pool_client tkeyapp.conf install_dep.sh launch.sh peers.dat
 
 
 ЭТАП 4 - Запуск Pool Client и майнинг
@@ -121,3 +119,11 @@ getbalance
 Всё, майнинг идёт, можно отключиться от клиента - сначала нажмите Ctrl + A, затем D.
 
 Чтобы остановить майнинг, подключитесь к клиенту и выполните команду exit.
+
+
+ДОПОЛНИТЕЛЬНО - Переустановка
+
+Перед загрузкой новой версии, необходимо удалить предыдущую:
+rm -rf pool_client_latest
+
+После удаления проделываем все действия этапа 3.
