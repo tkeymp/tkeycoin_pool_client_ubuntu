@@ -93,7 +93,9 @@ sudo bash ./install_dep.sh
 
 Имеется два варианта запуска.
 Первый (рекомендуемый):
-screen -L -dmS pool_client sudo ./pool_client IP:port ваш адрес
+screen -L -dmS pool_client sudo ./pool_client <IP:port> <ваш адрес> <имя воркера>
+Например:
+screen -L -dmS pool_client sudo ./pool_client 3.15.45.237:8333 qMKSHAeyWvCTLb9tBzES5tbPMgantChnMh linux_vm_1
 
 Второй (для профессионалов):
 ВНИМАНИЕ: перед запуском отредактируйте launch.sh - замените адрес на свой.
